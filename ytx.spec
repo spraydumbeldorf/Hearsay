@@ -43,7 +43,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name="YouTube Transcript Extractor",
+    name="Hearsay",
     icon=os.path.join(ROOT, "assets", "icon.ico"),
     version=os.path.join(ROOT, "tools", "version_info.txt"),
     console=False,

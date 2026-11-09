@@ -1,10 +1,17 @@
-# YouTube Transcript Extractor
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/hearsay-logo-dark.png">
+    <img src="assets/logo/hearsay-logo-light.png" alt="Hearsay: Every word, on the record." width="460">
+  </picture>
+</p>
 
-A Windows desktop app that turns a YouTube link or a local video/audio file into a clean, organised
+# Hearsay
+
+**Every word, on the record.** A Windows desktop app that turns a YouTube link or a local video/audio file into a clean, organised
 transcript, split into the video's chapters with timestamped paragraphs. It saves Markdown, plain-text
 and subtitle (.srt) files automatically.
 
-**Program:** `dist\YouTube Transcript Extractor.exe` (a single file; copy it anywhere and double-click).
+**Program:** `dist\Hearsay.exe` (a single file; copy it anywhere and double-click).
 
 ## Using it
 
@@ -53,18 +60,18 @@ Every change is listed in the Changes tab and at the end of the Markdown file.
 
 ## Good to know
 
-- Model files are stored in `%LOCALAPPDATA%\YouTube Transcript Extractor\models`. Delete that folder to free
+- Model files are stored in `%LOCALAPPDATA%\Hearsay\models`. Delete that folder to free
   the space; models are downloaded again when next needed.
 - Chapter times come from the video description, and creators sometimes get them wrong. Each section starts at
   the nearest sentence, and if that's more than 15 seconds from the listed time, both times are shown.
-- Errors are logged to `%LOCALAPPDATA%\YouTube Transcript Extractor\error.log`.
+- Errors are logged to `%LOCALAPPDATA%\Hearsay\error.log`.
 - YouTube changes often. If links stop working, rebuild with a newer `yt-dlp` (edit `requirements.txt`).
 - Private, members-only and age-restricted videos can't be read.
 
 ## Command-line mode
 
 ```
-"YouTube Transcript Extractor.exe" --cli <link-or-file> [--method captions|whisper]
+Hearsay.exe --cli <link-or-file> [--method captions|whisper]
     [--model large-v3-turbo|large-v3|small] [--language en] [--terms "Ollama, Qwen"]
     [--out DIR] [--clip 8:10-8:40]
 ```
@@ -78,7 +85,7 @@ powershell -ExecutionPolicy Bypass -File build.ps1
 ```
 
 This creates `.venv`, installs `requirements.txt`, generates the icon (`tools\make_assets.py`) and runs
-PyInstaller (`ytx.spec`). Run from source with `.venv\Scripts\python.exe run.py`.
+PyInstaller (`ytx.spec`). The logo and icon are drawn by `tools\make_assets.py` (`assets\logo\` has the SVG and PNG versions). Run from source with `.venv\Scripts\python.exe run.py`.
 
 Project layout:
 

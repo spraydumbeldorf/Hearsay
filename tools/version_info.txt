@@ -1,13 +1,13 @@
 VSVersionInfo(
-  ffi=FixedFileInfo(filevers=(1, 0, 0, 0), prodvers=(1, 0, 0, 0), mask=0x3f, flags=0x0, OS=0x40004,
+  ffi=FixedFileInfo(filevers=(1, 1, 0, 0), prodvers=(1, 1, 0, 0), mask=0x3f, flags=0x0, OS=0x40004,
                     fileType=0x1, subtype=0x0, date=(0, 0)),
   kids=[
     StringFileInfo([StringTable('040904B0', [
-      StringStruct('FileDescription', 'YouTube Transcript Extractor'),
-      StringStruct('FileVersion', '1.0.0'),
-      StringStruct('ProductName', 'YouTube Transcript Extractor'),
-      StringStruct('ProductVersion', '1.0.0'),
-      StringStruct('OriginalFilename', 'YouTube Transcript Extractor.exe')])]),
+      StringStruct('FileDescription', 'Hearsay - every word, on the record'),
+      StringStruct('FileVersion', '1.1.0'),
+      StringStruct('ProductName', 'Hearsay'),
+      StringStruct('ProductVersion', '1.1.0'),
+      StringStruct('OriginalFilename', 'Hearsay.exe')])]),
     VarFileInfo([VarStruct('Translation', [1033, 1200])])
   ]
 )

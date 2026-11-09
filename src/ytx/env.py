@@ -5,7 +5,7 @@ import os
 import sys
 from pathlib import Path
 
-from . import APP_NAME
+from . import APP_NAME, LEGACY_APP_NAMES
 
 
 def is_frozen() -> bool:
@@ -19,7 +19,17 @@ def resource_path(*parts: str) -> Path:
 
 
 def data_dir() -> Path:
-    base = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local") / APP_NAME
+    root = Path(os.environ.get("LOCALAPPDATA") or Path.home() / "AppData" / "Local")
+    base = root / APP_NAME
+    if not base.exists():
+        # The app was renamed: move the old folder (with its multi-GB models) instead of re-downloading.
+        for old in LEGACY_APP_NAMES:
+            if (root / old).is_dir():
+                try:
+                    (root / old).rename(base)
+                except OSError:
+                    pass
+                break
     base.mkdir(parents=True, exist_ok=True)
     return base
 

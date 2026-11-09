@@ -17,15 +17,16 @@ from tkinter import filedialog
 
 import customtkinter as ctk
 
-from . import APP_NAME, APP_VERSION
+from . import APP_NAME, APP_TAGLINE, APP_VERSION
 from .env import default_output_dir, prepare_runtime, resource_path
 from .models import Transcript, fmt_time
 
 # ----------------------------------------------------------------------------- palette
-ACCENT = ("#5B5BD6", "#6C6CF0")
-ACCENT_HOVER = ("#4949C2", "#5A5AE0")
-ACCENT_TEXT = ("#5B5BD6", "#9C9CFA")   # accent used as text on the card background
-ACCENT_SOFT = ("#EDEDFC", "#25253F")
+# Hearsay brand: indigo -> violet (matches the logo tile and glyph)
+ACCENT = ("#5546E6", "#6A5CFF")
+ACCENT_HOVER = ("#4436CC", "#5A4BF0")
+ACCENT_TEXT = ("#4C3EE0", "#A69CFF")   # accent used as text on the card background
+ACCENT_SOFT = ("#ECEAFE", "#27224D")
 BG = ("#F4F5F8", "#0F1014")
 SIDEBAR = ("#FFFFFF", "#17181D")
 CARD = ("#FFFFFF", "#17181D")
@@ -128,18 +129,18 @@ class App(ctk.CTk):
         if png.exists():
             try:
                 from PIL import Image
-                img = ctk.CTkImage(Image.open(png), size=(44, 44))
-                logo = ctk.CTkLabel(brand, text="", image=img, width=44, height=44)
+                img = ctk.CTkImage(Image.open(png), size=(50, 50))
+                logo = ctk.CTkLabel(brand, text="", image=img, width=50, height=50)
             except Exception:
                 logo = None
         if logo is None:
             logo = ctk.CTkLabel(brand, text="≡", width=42, height=42, corner_radius=12, fg_color=ACCENT,
                                 text_color="#FFFFFF", font=ctk.CTkFont(family=self.ff_display, size=24, weight="bold"))
         logo.grid(row=0, column=0, rowspan=2, padx=(0, 12))
-        ctk.CTkLabel(brand, text="Transcript Extractor", font=self.f(19, "bold", True), text_color=TEXT,
-                     anchor="w").grid(row=0, column=1, sticky="w")
-        ctk.CTkLabel(brand, text="YouTube & video files → clean transcripts", font=self.f(12),
-                     text_color=MUTED, anchor="w").grid(row=1, column=1, sticky="w")
+        ctk.CTkLabel(brand, text=APP_NAME, font=self.f(24, "bold", True), text_color=TEXT,
+                     anchor="w").grid(row=0, column=1, sticky="sw")
+        ctk.CTkLabel(brand, text=APP_TAGLINE, font=self.f(12),
+                     text_color=MUTED, anchor="w").grid(row=1, column=1, sticky="nw")
 
         r = 1
         self._section_label(sb, "1  Source").grid(row=r, column=0, sticky="ew", padx=px, pady=(4, 8)); r += 1
@@ -595,7 +596,8 @@ class App(ctk.CTk):
         t = self.texts["Transcript"]
         self._clear(t)
         t.insert("end", "Turn any video into a clean, organised transcript\n", "welcome_big")
-        t.insert("end", "Everything runs on this PC.\n\n", "welcome")
+        t.insert("end", "Works with YouTube links and video or audio files. Everything runs on this PC.\n\n",
+                 "welcome")
         steps = [
             ("1", "Paste a YouTube link, or switch to Video / audio file and choose one."),
             ("2", "Pick a method: Captions is instant; Whisper AI listens to the audio and is far more accurate."),

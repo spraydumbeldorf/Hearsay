@@ -26,7 +26,7 @@ def main(argv: list[str]) -> int:
     prepare_runtime()
     from . import document, pipeline
 
-    ap = argparse.ArgumentParser(prog="ytx --cli")
+    ap = argparse.ArgumentParser(prog="Hearsay.exe --cli")
     ap.add_argument("source")
     ap.add_argument("--method", default="captions", choices=["captions", "whisper"])
     ap.add_argument("--model", default="large-v3-turbo")

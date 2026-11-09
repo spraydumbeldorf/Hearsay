@@ -1,4 +1,4 @@
-# Builds dist\YouTube Transcript Extractor.exe
+# Builds dist\Hearsay.exe
 # Usage:  powershell -ExecutionPolicy Bypass -File build.ps1
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
@@ -12,5 +12,5 @@ $py = ".venv\Scripts\python.exe"
 & $py tools\make_assets.py
 & $py -m PyInstaller --noconfirm --clean ytx.spec
 if ($LASTEXITCODE -ne 0) { throw "PyInstaller failed" }
-$exe = Get-Item "dist\YouTube Transcript Extractor.exe"
+$exe = Get-Item "dist\Hearsay.exe"
 "Built {0} ({1:N0} MB)" -f $exe.FullName, ($exe.Length / 1MB)
