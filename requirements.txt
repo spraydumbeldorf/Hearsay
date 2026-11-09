@@ -1,0 +1,9 @@
+# Versions verified together on Windows 11 / Python 3.13
+faster-whisper==1.2.1
+ctranslate2==4.8.5
+av==19.0.2
+yt-dlp==2026.10.26
+msvc-runtime==14.51.36231
+customtkinter==6.0.0
+pillow==13.0.0
+pyinstaller==6.22.3

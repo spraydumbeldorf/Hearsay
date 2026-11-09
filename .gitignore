@@ -1,0 +1,17 @@
+# Python / virtual env
+.venv/
+__pycache__/
+*.pyc
+
+# PyInstaller output (the .exe is published as a GitHub Release asset, it is over GitHub's 100 MB file limit)
+build/
+dist/
+
+# Local test runs (contain downloaded media and transcripts)
+test-output/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
